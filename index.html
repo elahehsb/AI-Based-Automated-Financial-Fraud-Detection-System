@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fraud Detection Dashboard</title>
+</head>
+<body>
+    <h1>Financial Fraud Detection</h1>
+    <form id="fraud-form">
+        <label for="features">Enter Transaction Features (comma-separated):</label><br>
+        <input type="text" id="features" name="features" required><br><br>
+        <button type="submit">Check for Fraud</button>
+    </form>
+    <div id="result"></div>
+
+    <script>
+        document.getElementById('fraud-form').addEventListener('submit', async (event) => {
+            event.preventDefault();
+            const features = document.getElementById('features').value.split(',').map(Number);
+
+            const response = await fetch('/predict', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ features })
+            });
+            const result = await response.json();
+            document.getElementById('result').innerText = `Fraudulent: ${result.fraudulent ? 'Yes' : 'No'}`;
+        });
+    </script>
+</body>
+</html>
