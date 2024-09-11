@@ -1,5 +1,6 @@
 # AI-Based Automated Financial Fraud Detection System
 
+
 ### Project Overview
 
 The goal of this project is to develop an AI-based system for detecting financial fraud in transactions. This system will use machine learning algorithms to analyze transaction data and identify fraudulent activities in real-time. By leveraging historical transaction data and applying anomaly detection techniques, the system aims to enhance security and reduce the risk of fraudulent activities in financial transactions.
